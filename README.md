@@ -1,76 +1,92 @@
 # Image Compressor
 
-A modern web application for compressing and optimizing images while maintaining quality. Perfect for websites, social media, and email attachments.
+一个基于Next.js构建的在线图片压缩工具。用户可以轻松压缩图像而不会显著降低质量。
 
-## Features
+## 功能
 
-- Easy drag-and-drop interface for uploading images
-- Advanced compression algorithm that preserves image quality
-- Adjustable compression settings (quality, max size, dimensions)
-- Side-by-side comparison of original and compressed images
-- Download compressed images with a single click
-- Supports JPG, PNG, GIF, and WebP formats
-- Fully responsive design that works on mobile and desktop
+- 支持JPG、PNG、GIF和WebP格式图片
+- 可调整压缩质量
+- 设置最大输出尺寸
+- 设置最大文件大小
+- 实时预览和对比
 
-## Tech Stack
+## 开发环境
 
-- Next.js 14 - React framework for building the UI
-- TypeScript - For type safety and better development experience
-- Tailwind CSS - For styling the components
-- browser-image-compression - Core library for image compression
-- React-Dropzone - For drag and drop file uploads
-- Sharp - For server-side image processing
-- File-Saver - For handling file downloads
+- Node.js 18.x 或更高版本
+- npm 9.x 或更高版本
 
-## Getting Started
+## 本地开发
 
-### Prerequisites
-
-- Node.js 16.8 or later
-- npm or yarn
-
-### Installation
-
-1. Clone the repository:
+1. 克隆仓库
 ```bash
-git clone https://github.com/yourusername/image-compressor.git
-cd image-compressor
+git clone https://github.com/yourusername/image-compressor-clean.git
+cd image-compressor-clean
 ```
 
-2. Install dependencies:
+2. 安装依赖
 ```bash
 npm install
-# or
-yarn install
 ```
 
-3. Run the development server:
+3. 启动开发服务器
 ```bash
 npm run dev
-# or
-yarn dev
 ```
 
-4. Open [http://localhost:3000](http://localhost:3000) with your browser to see the application.
+4. 打开 [http://localhost:3000](http://localhost:3000) 查看应用
 
-## Deployment
+## 构建项目
 
-The application can be deployed to any hosting platform that supports Next.js applications, such as Vercel, Netlify, or AWS.
-
-### Build for production
+### 标准构建（适用于Vercel等平台）
 
 ```bash
 npm run build
-# or
-yarn build
 ```
 
-## License
+### GitHub Pages构建（包含正确的basePath）
 
-This project is licensed under the MIT License - see the LICENSE file for details.
+```bash
+npm run build:github
+```
 
-## Acknowledgements
+## 部署
 
-- [browser-image-compression](https://github.com/Donaldcwl/browser-image-compression) for the core compression functionality
-- [Next.js](https://nextjs.org/) for the React framework
-- [Tailwind CSS](https://tailwindcss.com/) for the styling system
+### GitHub Pages部署
+
+项目已配置为通过GitHub Actions自动部署到GitHub Pages：
+
+1. 将代码推送到`main`分支
+2. GitHub Actions会自动触发部署流程
+3. 部署后可以在 `https://yourusername.github.io/image-compressor-clean/` 访问应用
+
+如需手动部署：
+
+```bash
+npm run build:github
+# 确保在out目录中有.nojekyll文件
+touch out/.nojekyll
+# 部署out目录到gh-pages分支
+```
+
+### Vercel部署
+
+1. 在Vercel平台创建新项目
+2. 连接到您的GitHub仓库
+3. 部署设置保持默认即可，Vercel会自动识别Next.js项目
+4. 部署完成后，您可以在Vercel提供的域名访问应用
+
+## 环境变量
+
+- `GITHUB_PAGES`: 设置为`true`时启用GitHub Pages的basePath配置（使用`npm run build:github`自动设置）
+
+## 项目结构
+
+- `app/`: Next.js App Router 应用代码
+- `components/`: React组件
+- `public/`: 静态资源
+- `out/`: 构建输出目录
+- `.github/workflows/`: GitHub Actions工作流配置
+
+## 许可证
+
+MIT

@@ -1,12 +1,12 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  reactStrictMode: true,
-  images: {
-    domains: [],
-  },
   output: 'export',
-  // 为 GitHub Pages 项目站点设置正确的 basePath
-  basePath: process.env.NODE_ENV === 'production' ? '/image-compressor-clean' : '',
+  images: {
+    unoptimized: true,
+  },
+  basePath: process.env.GITHUB_PAGES === 'true' ? '/image-compressor-clean' : '',
+  trailingSlash: true,
+  distDir: 'out',
 }
 
 module.exports = nextConfig
