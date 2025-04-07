@@ -31,3 +31,4 @@ jobs:
         with:
           folder: out
           branch: gh-pages
+          clean: true  # 清除旧文件

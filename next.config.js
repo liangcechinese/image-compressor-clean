@@ -5,8 +5,8 @@ const nextConfig = {
     domains: [],
   },
   output: 'export',
-  // 如果您希望部署到根目录，请删除或注释掉下面的 basePath 配置
-  // basePath: process.env.NODE_ENV === 'production' ? '/image-compressor' : '',
+  // 为 GitHub Pages 项目站点设置正确的 basePath
+  basePath: process.env.NODE_ENV === 'production' ? '/image-compressor-clean' : '',
 }
 
 module.exports = nextConfig
