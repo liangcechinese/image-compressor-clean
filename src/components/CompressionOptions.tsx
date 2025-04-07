@@ -1,7 +1,7 @@
 'use client';
 
 import React from 'react';
-import { CompressionOptions } from '@/utils/imageCompression';
+import type { CompressionOptions } from '@/utils/imageCompression';
 
 interface CompressionOptionsProps {
   options: CompressionOptions;
